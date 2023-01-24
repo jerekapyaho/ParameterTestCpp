@@ -6,6 +6,7 @@
 #include "volume.h"
 #include "coarse.h"
 #include "pan.h"
+#include "randomizer.h"
 
 int main() {
     std::vector<std::unique_ptr<Parameter>> parameters;
@@ -35,6 +36,8 @@ int main() {
         // Every subclass of Parameter overrides the toString() method,
         // so the result is different for every instance.
         std::cout << parameter->toString() << std::endl;
+
+        std::cout << std::endl;
     }
 
     volume.setValue(50);
@@ -42,7 +45,7 @@ int main() {
 
     // Pan is clamping by default, so setting it to a value
     // outside its range should be fine:
-    std::cout << "setting pan to " << -40 << "..." << std::endl;
+    std::cout << "trying to set pan to " << -40 << "..." << std::endl;
     pan.setValue(-40);
     std::cout << "pan is now " << pan.getValue() << std::endl;  // should be clamped to -7
 

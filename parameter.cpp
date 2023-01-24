@@ -4,7 +4,6 @@
 #include <strstream>
 
 #include "parameter.h"
-#include "randomizer.h"
 
 Parameter::Parameter(std::string_view n, int min, int max, int d, int v, bool c) :
     name(n), minimumValue(min), maximumValue(max), defaultValue(d), value(v), clamping(c)
@@ -49,9 +48,3 @@ bool Parameter::isClamping() const { return clamping; }
 
 // There is no implementation of the `toString` method,
 // because it is pure virtual.
-
-void Parameter::setRandomValue() {
-    int newValue = ParameterRandomizer::instance().
-        getRandomValue(*this);
-    setValue(newValue);
-}
