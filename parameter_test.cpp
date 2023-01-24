@@ -6,7 +6,6 @@
 #include "volume.h"
 #include "coarse.h"
 #include "pan.h"
-#include "randomizer.h"
 
 int main() {
     std::vector<std::unique_ptr<Parameter>> parameters;
