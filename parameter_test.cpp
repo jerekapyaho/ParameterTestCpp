@@ -6,6 +6,7 @@
 #include "volume.h"
 #include "coarse.h"
 #include "pan.h"
+#include "randomizer.h"
 
 int main() {
     std::vector<std::unique_ptr<Parameter>> parameters;
@@ -35,6 +36,19 @@ int main() {
         // Every subclass of Parameter overrides the toString() method,
         // so the result is different for every instance.
         std::cout << parameter->toString() << std::endl;
+
+        // Get some random values for the parameter:
+        std::cout << "some random values to use: ";
+        for (int i = 0; i < 10; i++) {
+            int randomValue = ParameterRandomizer::instance().getRandomValue(*parameter);
+            std::cout << randomValue << " ";
+        }
+        std::cout << std::endl;
+
+        // Set a random value for this parameter and print it out:
+        parameter->setRandomValue();
+        std::cout << "new random value = "
+            << parameter->getValue() << std::endl;
 
         std::cout << std::endl;
     }

@@ -23,6 +23,8 @@ public:
     // (so that you can't make instances of Parameter, only subclasses)
     virtual std::string toString() const = 0;
 
+    void setRandomValue();
+
 private:
     std::string name;
     int defaultValue;
